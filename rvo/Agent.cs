@@ -58,7 +58,7 @@ using System.Collections.Generic;
 
 namespace RVO
 {
-    internal enum AgentType
+    public enum AgentType
     {
         GroundUnit,
         GroundJumpUnit,
@@ -71,7 +71,7 @@ namespace RVO
     /**
      * <summary>Defines an agent in the simulation.</summary>
      */
-    internal class Agent
+    public class Agent
     {
         private Simulator simulator;
 
@@ -647,8 +647,11 @@ namespace RVO
 
         internal void FixPosAndVelocity()
         {
-            velocity_ = new Vector2(double.Parse(velocity_.x.ToString("F4")), double.Parse(velocity_.y.ToString("F4")));
-            position_ = new Vector2(double.Parse(position_.x.ToString("F4")), double.Parse(position_.y.ToString("F4")));
+            velocity_ = new Vector2(Math.Round(velocity_.x, 4), Math.Round(velocity_.y, 4));
+            position_ = new Vector2(Math.Round(position_.x, 4), Math.Round(position_.y, 4));
+
+            //velocity_ = new Vector2(double.Parse(velocity_.x.ToString("F4")), double.Parse(velocity_.y.ToString("F4")));
+            //position_ = new Vector2(double.Parse(position_.x.ToString("F4")), double.Parse(position_.y.ToString("F4")));
         }
 
         /**
