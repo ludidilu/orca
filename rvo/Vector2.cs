@@ -130,6 +130,14 @@ namespace RVO
             return (a - b).magnitude;
         }
 
+        public static double Angle(Vector2 vector1, Vector2 vector2)
+        {
+            double sin = vector1.x * vector2.y - vector2.x * vector1.y;
+            double cos = vector1.x * vector2.x + vector1.y * vector2.y;
+
+            return Math.Abs(Math.Atan2(sin, cos));
+        }
+
         public static double Dot(Vector2 lhs, Vector2 rhs)
         {
             return lhs.x * rhs.x + lhs.y * rhs.y;
