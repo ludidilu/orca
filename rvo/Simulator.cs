@@ -399,7 +399,7 @@ namespace RVO
                 }
             }
 
-            return Math.Round(result, 4);
+            return result;
         }
 
         /**
