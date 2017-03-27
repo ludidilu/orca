@@ -60,12 +60,13 @@ namespace RVO
 {
     public enum AgentType
     {
-        GroundUnit,
-        GroundJumpUnit,
-        AirUnit,
-        Building,
-        SkillPush,
-        SkillObstacle
+        GroundUnit,//地面单位 可以移动 会和obstacle碰撞 会和GroundUnit碰撞 会和GroundJumpUnit碰撞 会和Building碰撞 会和敌人的SkillPush碰撞 会和SkillObstacle碰撞 会和SkillUnit碰撞
+        GroundJumpUnit,//地面跳跃单位 可以移动 会和GroundUnit碰撞 会和GroundJumpUnit碰撞 会和Building碰撞 会和敌人的SkillPush碰撞 会和SkillObstacle碰撞 会和SkillUnit碰撞
+        AirUnit,//空中单位 可以移动 会和AirUnit碰撞 会和敌人的SkillPush碰撞
+        Building,//建筑 不可以移动
+        SkillPush,//技能推力 不可以移动 每次移动结束后被删除
+        SkillObstacle,//技能障碍 不可以移动
+        SkillUnit,//技能单位 可以移动 会和Building碰撞 会和SkillObstacle碰撞 会和SkillUnit碰撞
     }
 
     /**
@@ -480,12 +481,12 @@ namespace RVO
             {
                 if (agent.type == AgentType.SkillPush)
                 {
-                    if (agent.isMine == isMine)
+                    if (agent.isMine == isMine || type == AgentType.SkillUnit)
                     {
                         return;
                     }
                 }
-                else if (agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle)
+                else if (agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle || agent.type == AgentType.SkillUnit)
                 {
                     if (type == AgentType.AirUnit)
                     {
@@ -494,6 +495,11 @@ namespace RVO
                 }
                 else
                 {
+                    if (type == AgentType.SkillUnit)
+                    {
+                        return;
+                    }
+
                     if ((type == AgentType.AirUnit) != (agent.type == AgentType.AirUnit))
                     {
                         return;

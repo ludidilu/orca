@@ -271,7 +271,7 @@ namespace RVO
                 {
                     Agent agent = agents_[i];
 
-                    if (agent.type == AgentType.SkillPush || agent.type == AgentType.SkillObstacle)
+                    if (agent.type == AgentType.SkillPush || agent.type == AgentType.SkillObstacle || agent.type == AgentType.SkillUnit)
                     {
                         continue;
                     }
@@ -331,7 +331,7 @@ namespace RVO
                 {
                     Agent tmpAgent = agents_[i];
 
-                    if (tmpAgent == agent || tmpAgent.type == AgentType.SkillPush || tmpAgent.type == AgentType.SkillObstacle)
+                    if (tmpAgent == agent || tmpAgent.type == AgentType.SkillPush || tmpAgent.type == AgentType.SkillObstacle || tmpAgent.type == AgentType.SkillUnit)
                     {
                         continue;
                     }

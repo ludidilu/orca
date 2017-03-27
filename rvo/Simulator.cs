@@ -329,7 +329,7 @@ namespace RVO
             {
                 Agent agent = agentList[i];
 
-                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit)
+                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit || agent.type == AgentType.SkillUnit)
                 {
                     agent.computeNeighbors();
 
@@ -341,7 +341,7 @@ namespace RVO
             {
                 Agent agent = agentList[i];
 
-                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit)
+                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit || agent.type == AgentType.SkillUnit)
                 {
                     agent.update();
                 }
@@ -356,7 +356,7 @@ namespace RVO
             {
                 Agent agent = agentList[i];
 
-                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit)
+                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit || agent.type == AgentType.SkillUnit)
                 {
                     agent.computeNeighbors();
 
@@ -370,7 +370,7 @@ namespace RVO
             {
                 Agent agent = agentList[i];
 
-                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit)
+                if (agent.type == (int)AgentType.GroundUnit || agent.type == AgentType.GroundJumpUnit || agent.type == AgentType.AirUnit || agent.type == AgentType.SkillUnit)
                 {
                     agent.update();
 
