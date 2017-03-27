@@ -527,7 +527,7 @@ namespace RVO
 
                 if (distSq < rangeSq)
                 {
-                    if (agent.type == AgentType.SkillPush || agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle)
+                    if (agent.type == AgentType.SkillPush || agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle || agent.type == AgentType.SkillUnit)
                     {
                         double dis = Math.Sqrt(distSq);
 
