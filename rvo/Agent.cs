@@ -66,7 +66,7 @@ namespace RVO
         Building,//建筑 不可以移动
         SkillPush,//技能推力 不可以移动 每次移动结束后被删除
         SkillObstacle,//技能障碍 不可以移动
-        SkillUnit,//技能单位 可以移动 会和Building碰撞 会和SkillObstacle碰撞 会和SkillUnit碰撞
+        SkillUnit,//技能单位 可以移动 会和obstacle碰撞 会和Building碰撞 会和SkillObstacle碰撞
     }
 
     /**
@@ -486,9 +486,16 @@ namespace RVO
                         return;
                     }
                 }
-                else if (agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle || agent.type == AgentType.SkillUnit)
+                else if (agent.type == AgentType.Building || agent.type == AgentType.SkillObstacle)
                 {
                     if (type == AgentType.AirUnit)
+                    {
+                        return;
+                    }
+                }
+                else if (agent.type == AgentType.SkillUnit)
+                {
+                    if (type == AgentType.AirUnit || type == AgentType.SkillUnit)
                     {
                         return;
                     }
