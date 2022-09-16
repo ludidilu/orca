@@ -1,0 +1,25 @@
+﻿[*.cs]
+
+# IDE1006: 命名样式
+dotnet_diagnostic.IDE1006.severity = none
+
+# IDE0039: 使用本地函数
+# csharp_style_pattern_local_over_anonymous_function = true:none
+
+# IDE0018: 内联变量声明
+csharp_style_inlined_variable_declaration = true:none
+
+# IDE0034: 简化 "default" 表达式
+csharp_prefer_simple_default_expression = true:none
+
+# IDE0034WithoutSuggestion: 简化 "default" 表达式
+dotnet_diagnostic.IDE0034WithoutSuggestion.severity = none
+
+# IDE0017: 简化对象初始化
+dotnet_style_object_initializer = true:none
+
+# IDE1005: 可简化委托调用。
+csharp_style_conditional_delegate_call = true:none
+
+# IDE0028: 简化集合初始化
+dotnet_style_collection_initializer = true:none
