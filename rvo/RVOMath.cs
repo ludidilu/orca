@@ -66,7 +66,7 @@ namespace RVO
         /**
          * <summary>A sufficiently small positive number.</summary>
          */
-        internal const double RVO_EPSILON = 0.00001;
+        internal const float RVO_EPSILON = 0.00001f;
 
         /**
          * <summary>Computes the length of a specified two-dimensional vector.
@@ -76,9 +76,9 @@ namespace RVO
          * computed.</param>
          * <returns>The length of the two-dimensional vector.</returns>
          */
-        public static double abs(Vector2 vector)
+        public static float abs(Vector2 vector)
         {
-            return Math.Sqrt(absSq(vector));
+            return (float)Math.Sqrt(absSq(vector));
         }
 
         /**
@@ -90,7 +90,7 @@ namespace RVO
          * <param name="vector">The two-dimensional vector whose squared length
          * is to be computed.</param>
          */
-        public static double absSq(Vector2 vector)
+        public static float absSq(Vector2 vector)
         {
             return Vector2.Dot(vector, vector);
         }
@@ -122,7 +122,7 @@ namespace RVO
          * <param name="vector2">The bottom row of the two-dimensional square
          * matrix.</param>
          */
-        internal static double det(Vector2 vector1, Vector2 vector2)
+        internal static float det(Vector2 vector1, Vector2 vector2)
         {
             return vector1.x * vector2.y - vector1.y * vector2.x;
         }
@@ -140,9 +140,9 @@ namespace RVO
          * <param name="vector3">The point to which the squared distance is to
          * be calculated.</param>
          */
-        internal static double distSqPointLineSegment(Vector2 vector1, Vector2 vector2, Vector2 vector3)
+        internal static float distSqPointLineSegment(Vector2 vector1, Vector2 vector2, Vector2 vector3)
         {
-            double r = (Vector2.Dot((vector3 - vector1), (vector2 - vector1))) / absSq(vector2 - vector1);
+            float r = (Vector2.Dot((vector3 - vector1), (vector2 - vector1))) / absSq(vector2 - vector1);
 
             if (r < 0.0)
             {
@@ -169,19 +169,19 @@ namespace RVO
          * <param name="c">The point to which the signed distance is to be
          * calculated.</param>
          */
-        internal static double leftOf(Vector2 a, Vector2 b, Vector2 c)
+        internal static float leftOf(Vector2 a, Vector2 b, Vector2 c)
         {
             return det(a - c, b - a);
         }
 
         /**
-         * <summary>Computes the square of a double.</summary>
+         * <summary>Computes the square of a float.</summary>
          *
-         * <returns>The square of the double.</returns>
+         * <returns>The square of the float.</returns>
          *
-         * <param name="scalar">The double to be squared.</param>
+         * <param name="scalar">The float to be squared.</param>
          */
-        internal static double sqr(double scalar)
+        internal static float sqr(float scalar)
         {
             return scalar * scalar;
         }

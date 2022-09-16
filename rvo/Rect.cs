@@ -2,33 +2,33 @@
 {
     public struct Rect
     {
-        private double m_XMin;
-        private double m_YMin;
-        private double m_Width;
-        private double m_Height;
+        private float m_XMin;
+        private float m_YMin;
+        private float m_Width;
+        private float m_Height;
 
         public Vector2 center
         {
             get
             {
-                return new Vector2(this.x + this.m_Width / 2, this.y + this.m_Height / 2);
+                return new Vector2(x + m_Width / 2, y + m_Height / 2);
             }
             set
             {
-                this.m_XMin = value.x - this.m_Width / 2;
-                this.m_YMin = value.y - this.m_Height / 2;
+                m_XMin = value.x - m_Width / 2;
+                m_YMin = value.y - m_Height / 2;
             }
         }
 
-        public double height
+        public float height
         {
             get
             {
-                return this.m_Height;
+                return m_Height;
             }
             set
             {
-                this.m_Height = value;
+                m_Height = value;
             }
         }
 
@@ -36,12 +36,12 @@
         {
             get
             {
-                return new Vector2(this.xMax, this.yMax);
+                return new Vector2(xMax, yMax);
             }
             set
             {
-                this.xMax = value.x;
-                this.yMax = value.y;
+                xMax = value.x;
+                yMax = value.y;
             }
         }
 
@@ -49,12 +49,12 @@
         {
             get
             {
-                return new Vector2(this.xMin, this.yMin);
+                return new Vector2(xMin, yMin);
             }
             set
             {
-                this.xMin = value.x;
-                this.yMin = value.y;
+                xMin = value.x;
+                yMin = value.y;
             }
         }
 
@@ -62,12 +62,12 @@
         {
             get
             {
-                return new Vector2(this.m_XMin, this.m_YMin);
+                return new Vector2(m_XMin, m_YMin);
             }
             set
             {
-                this.m_XMin = value.x;
-                this.m_YMin = value.y;
+                m_XMin = value.x;
+                m_YMin = value.y;
             }
         }
 
@@ -75,100 +75,100 @@
         {
             get
             {
-                return new Vector2(this.m_Width, this.m_Height);
+                return new Vector2(m_Width, m_Height);
             }
             set
             {
-                this.m_Width = value.x;
-                this.m_Height = value.y;
+                m_Width = value.x;
+                m_Height = value.y;
             }
         }
 
-        public double width
+        public float width
         {
             get
             {
-                return this.m_Width;
+                return m_Width;
             }
             set
             {
-                this.m_Width = value;
+                m_Width = value;
             }
         }
 
-        public double x
+        public float x
         {
             get
             {
-                return this.m_XMin;
+                return m_XMin;
             }
             set
             {
-                this.m_XMin = value;
+                m_XMin = value;
             }
         }
 
-        public double xMax
+        public float xMax
         {
             get
             {
-                return this.m_Width + this.m_XMin;
+                return m_Width + m_XMin;
             }
             set
             {
-                this.m_Width = value - this.m_XMin;
+                m_Width = value - m_XMin;
             }
         }
 
-        public double xMin
+        public float xMin
         {
             get
             {
-                return this.m_XMin;
+                return m_XMin;
             }
             set
             {
-                double xMax = this.xMax;
-                this.m_XMin = value;
-                this.m_Width = xMax - this.m_XMin;
+                float xMax = this.xMax;
+                m_XMin = value;
+                m_Width = xMax - m_XMin;
             }
         }
 
-        public double y
+        public float y
         {
             get
             {
-                return this.m_YMin;
+                return m_YMin;
             }
             set
             {
-                this.m_YMin = value;
+                m_YMin = value;
             }
         }
 
-        public double yMax
+        public float yMax
         {
             get
             {
-                return this.m_Height + this.m_YMin;
+                return m_Height + m_YMin;
             }
             set
             {
-                this.m_Height = value - this.m_YMin;
+                m_Height = value - m_YMin;
             }
         }
 
-        public double yMin
+        public float yMin
         {
             get
             {
-                return this.m_YMin;
+                return m_YMin;
             }
             set
             {
-                double yMax = this.yMax;
-                this.m_YMin = value;
-                this.m_Height = yMax - this.m_YMin;
+                float yMax = this.yMax;
+                m_YMin = value;
+                m_Height = yMax - m_YMin;
             }
         }
 
@@ -177,31 +177,31 @@
         //
         public Rect(Rect source)
         {
-            this.m_XMin = source.m_XMin;
-            this.m_YMin = source.m_YMin;
-            this.m_Width = source.m_Width;
-            this.m_Height = source.m_Height;
+            m_XMin = source.m_XMin;
+            m_YMin = source.m_YMin;
+            m_Width = source.m_Width;
+            m_Height = source.m_Height;
         }
 
         public Rect(Vector2 position, Vector2 size)
         {
-            this.m_XMin = position.x;
-            this.m_YMin = position.y;
-            this.m_Width = size.x;
-            this.m_Height = size.y;
+            m_XMin = position.x;
+            m_YMin = position.y;
+            m_Width = size.x;
+            m_Height = size.y;
         }
 
-        public Rect(double x, double y, double width, double height)
+        public Rect(float x, float y, float width, float height)
         {
-            this.m_XMin = x;
-            this.m_YMin = y;
-            this.m_Width = width;
-            this.m_Height = height;
+            m_XMin = x;
+            m_YMin = y;
+            m_Width = width;
+            m_Height = height;
         }
 
         public bool Contains(Vector2 point)
         {
-            return point.x >= this.xMin && point.x < this.xMax && point.y >= this.yMin && point.y < this.yMax;
+            return point.x >= xMin && point.x < xMax && point.y >= yMin && point.y < yMax;
         }
 
         public override bool Equals(object other)
@@ -211,20 +211,20 @@
                 return false;
             }
             Rect rect = (Rect)other;
-            return this.x.Equals(rect.x) && this.y.Equals(rect.y) && this.width.Equals(rect.width) && this.height.Equals(rect.height);
+            return x.Equals(rect.x) && y.Equals(rect.y) && width.Equals(rect.width) && height.Equals(rect.height);
         }
 
         public override int GetHashCode()
         {
-            return this.x.GetHashCode() ^ this.width.GetHashCode() << 2 ^ this.y.GetHashCode() >> 2 ^ this.height.GetHashCode() >> 1;
+            return x.GetHashCode() ^ width.GetHashCode() << 2 ^ y.GetHashCode() >> 2 ^ height.GetHashCode() >> 1;
         }
 
-        public void Set(double x, double y, double width, double height)
+        public void Set(float x, float y, float width, float height)
         {
-            this.m_XMin = x;
-            this.m_YMin = y;
-            this.m_Width = width;
-            this.m_Height = height;
+            m_XMin = x;
+            m_YMin = y;
+            m_Width = width;
+            m_Height = height;
         }
 
         //
