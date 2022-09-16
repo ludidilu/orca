@@ -720,7 +720,7 @@ namespace RVO
          * <remarks>Obstacles added to the simulation after this function has
          * been called are not accounted for in the simulation.</remarks>
          */
-        internal void processObstacles()
+        public void processObstacles()
         {
             kdTree_.buildObstacleTree();
         }
