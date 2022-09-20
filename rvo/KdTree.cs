@@ -181,7 +181,7 @@ namespace RVO
         private AgentTreeNode[] agentTree_;
         private ObstacleTreeNode obstacleTree_;
 
-        private Simulator simulator;
+        private readonly Simulator simulator;
 
         internal KdTree(Simulator _simulator)
         {

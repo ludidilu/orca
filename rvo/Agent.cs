@@ -74,7 +74,7 @@ namespace RVO
      */
     public class Agent
     {
-        private Simulator simulator;
+        private readonly Simulator simulator;
 
         internal IList<KeyValuePair<float, Agent>> agentNeighbors_ = new List<KeyValuePair<float, Agent>>();
         internal IList<KeyValuePair<float, Obstacle>> obstacleNeighbors_ = new List<KeyValuePair<float, Obstacle>>();
@@ -92,6 +92,7 @@ namespace RVO
         internal bool isMine;
         internal AgentType type;
         internal int uid;
+        internal bool ignoreRadiusWithObstacle;
 
         private bool bePush = false;
         private float beforePushSpeed;
@@ -129,6 +130,13 @@ namespace RVO
             orcaLines_.Clear();
 
             float invTimeHorizonObst = 1.0f / timeHorizonObst_;
+
+            float recRadius = radius_;
+
+            if (ignoreRadiusWithObstacle)
+            {
+                radius_ = 0f;
+            }
 
             /* Create obstacle ORCA lines. */
             for (int i = 0; i < obstacleNeighbors_.Count; ++i)
@@ -384,6 +392,8 @@ namespace RVO
                 line.point = rightCutOff + radius_ * invTimeHorizonObst * new Vector2(-line.direction.y, line.direction.x);
                 orcaLines_.Add(line);
             }
+
+            radius_ = recRadius;
 
             int numObstLines = orcaLines_.Count;
 
