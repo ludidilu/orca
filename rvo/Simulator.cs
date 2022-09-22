@@ -637,6 +637,16 @@ namespace RVO
             agents_[_uid].isMine = _isMine;
         }
 
+        public bool getAgentIgnoreRadiusWithObstacle(int _uid)
+        {
+            return agents_[_uid].ignoreRadiusWithObstacle;
+        }
+
+        public void setAgentIgnoreRadiusWithObstacle(int _uid, bool _ignoreRadiusWithObstacle)
+        {
+            agents_[_uid].ignoreRadiusWithObstacle = _ignoreRadiusWithObstacle;
+        }
+
         /**
          * <summary>Returns the count of agents in the simulation.</summary>
          *

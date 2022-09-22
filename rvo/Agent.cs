@@ -466,7 +466,7 @@ namespace RVO
                     u = (combinedRadius * invTimeStep - wLength) * unitW;
                 }
 
-                line.point = velocity_ + 0.5f * u;
+                line.point = velocity_ + (weight < other.weight ? 1f : 0.5f) * u;
                 orcaLines_.Add(line);
             }
 
